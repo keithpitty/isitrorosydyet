@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'activesupport'
 
 helpers do
   def days_until_meetup
@@ -15,7 +16,7 @@ get "/" do
   case
   when @days > 0
     @big = 'NO'
-    @small = "only #{@days} sleep#{@days > 1 ? 's' : ''} to go... see you at the Trinity on #{@meetup.strftime("%A, %d %B")}"
+    @small = "only #{@days} sleep#{@days > 1 ? 's' : ''} to go... see you at the Trinity on #{@meetup.strftime("%A, #{@meetup.to_date.day.ordinalize} %B")}"
   when @days == 0
     @big = 'YES'
     @small = '#rorosyd is on today!'
