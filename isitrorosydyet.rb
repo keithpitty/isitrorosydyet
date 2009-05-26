@@ -24,5 +24,7 @@ get "/" do
     @big = 'NO'
     @small = '#rorosyd is over for another month :('
   end
-  haml :index
+  @plug = 'a <a href="http://bivou.ac">bivou.ac</a> service'
+  haml :index, :options => {:format => :html5,
+    :attr_wrapper => '"'}
 end
