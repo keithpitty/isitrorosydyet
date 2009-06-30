@@ -1,13 +1,18 @@
 %div
   %h1= @big
   %p= @small
-  %p 
-    if you're lucky you'll find more details
-    %a{:href => "http://rubyonrails.com.au/sydney-meetups"}
-      here
-  %p
-    if you want to do a lightning talk put your name and topic down
-    %a{:href => "http://wiki.rubyonrails.com.au/index.php/roro:Sydney_-_Topics_Confirmed"}
-      here
+  - unless @over
+    - if @details
+      %p 
+        if you're lucky you'll find more details
+        %a{:href => "http://rubyonrails.com.au/sydney-meetups"}
+          here
+    - else
+      %p Details to follow...
+    - if @need_more_talks
+      %p
+        if you want to do a talk put your name and topic down
+        %a{:href => "http://wiki.rubyonrails.com.au/index.php/roro:Sydney_-_Topics_Confirmed"}
+          here
   %p.plug
     = @plug
