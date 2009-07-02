@@ -18,7 +18,7 @@ get "/" do
     @big = 'NO'
     @small = "only #{@days} sleep#{@days > 1 ? 's' : ''} to go... see you at the Trinity on #{@meetup.strftime("%A, #{@meetup.to_date.day.ordinalize} %B")}"
     @details = false
-    @need_more_talks = false
+    @need_more_talks = true
   when @days == 0
     @big = 'YES'
     @small = '#rorosyd is on today!'
