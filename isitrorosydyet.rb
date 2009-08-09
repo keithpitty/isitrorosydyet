@@ -6,7 +6,7 @@ require 'activesupport'
 helpers do
   def days_until_meetup
     now = Time.now.utc
-    @meetup = Time.utc(2009, 7, 14, 15, 0, 0)
+    @meetup = Time.utc(2009, 8, 11, 15, 0, 0)
     ((@meetup - now) / (60 * 60 * 24)).to_i
   end
 end
