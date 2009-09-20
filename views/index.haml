@@ -1,18 +1,20 @@
 %div
   %h1= @big
   %p= @small
-  - unless @over
-    - if @details
+  - unless @meetup.recently_finished?
+    - if @meetup.details_on_faces?
       %p 
-        if you're lucky you'll find more details
-        %a{:href => "http://faces.rubyoceania.org/groups/sydney/meetings/2009-08-11"}
+        You can find out more about who is speaking about what
+        %a{:href => @meetup.faces_url }
           here
-    - else
-      %p Details to follow...
-    - if @need_more_talks
+    - if @meetup.needs_more_talks?
       %p
-        if you want to do a talk put your name and topic down
+        It looks like we may need more speakers so, if you want to, put your name and topic down
         %a{:href => "http://wiki.rubyonrails.com.au/index.php/roro:Sydney_-_Topics_Confirmed"}
           here
+  %p
+    And to have your say about topics, use
+    %a{:href => "http://groups.google.com/group/rails-oceania/"}
+      the #roro mailing list
   %p.plug
     = @plug
